@@ -2,6 +2,7 @@
 
 (function () {
     angular.module('my-app', [
+        'app.templates',
         'ngComponentRouter'
     ])
     .config(function($locationProvider) {

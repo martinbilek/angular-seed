@@ -10,14 +10,18 @@ fs.readdirSync('./gulp/tasks/')
 
 gulp.task('build', [
     'clean',
+    'copy:src',
     'compact:js',
+    'compact:html',
     'less',
     'deps:js',
-    'deps:fonts',
-    'copy:src'
+    'deps:fonts'
 ]);
 
-gulp.task('default', ['build', 'connect', 'less:watch'], function() {
-    gulp.watch(['src/**/*.js'], ['compact:js']);
-    gulp.watch(['src/**/*.js', 'src/**/*.html'], ['copy:src']);
-});
+gulp.task('default', [
+    'build',
+    'connect',
+    'copy:watch',
+    'compact:watch',
+    'less:watch'
+]);
