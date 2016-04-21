@@ -1,0 +1,17 @@
+<div class="container">
+    <div class="page-header">
+        <h1>Top 3 Heroes</h1>
+    </div>
+    <div class="row">
+        <div class="col-md-2 col-md-offset-5">
+            <span class="glyphicon glyphicon-star" style="font-size: 100px;"></span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="list-group">
+            <a class="list-group-item" ng-repeat="hero in heroes" ng-link="['HeroDetail', {id: hero.id}]">
+                {{hero.name}}
+            </a>
+        </div>
+    </div>
+</div>

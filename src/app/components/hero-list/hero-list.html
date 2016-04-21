@@ -1,0 +1,22 @@
+<div class="container">
+    <div class="page-header">
+        <h1>My Heroes</h1>
+    </div>
+    <div class="row">
+        <div class="col-xs-6">
+            <div class="list-group">
+                <a class="list-group-item"
+                    ng-repeat="hero in heroes"
+                    ng-click="onSelect(hero)"
+                    ng-class="{active: selectedHero==hero}">
+                    {{hero.name}}
+                </a>
+            </div>
+        </div>
+        <div class="col-xs-6" ng-if="selectedHero">
+            <h4>{{selectedHero.name | uppercase}} is my hero</h4>
+            <p>ID: {{selectedHero.id}}</p>
+            <button ng-click="gotoDetail()" type="button" class="btn btn-primary">Edit</button>
+        </div>
+    </div>
+</div>
