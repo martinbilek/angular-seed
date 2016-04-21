@@ -8,8 +8,6 @@ To get you started you can simply clone the angular-seed repository and install 
 
 ### Clone angular-seed
 
-Clone the angular-seed repository using git:
-
 ```
 git clone https://github.com/martinbilek/angular-seed.git
 cd angular-seed
@@ -26,3 +24,5 @@ npm install
 ```
 npm start
 ```
+
+Now browse to the app at `http://localhost:8080/`.
