@@ -7,8 +7,8 @@ var cfg = require('../config');
 //copy html files
 gulp.task('copy:src', function(){
     return gulp.src([
-            'src/index.html',
-            'src/**/*.html'
+            cfg.SOURCES_DIR + '/index.html',
+            cfg.SOURCES_DIR + '/**/*.html'
         ])
         .pipe(gulp.dest(cfg.BUILD_DIR))
         .pipe(connect.reload());

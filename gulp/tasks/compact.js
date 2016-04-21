@@ -5,7 +5,7 @@ var concat = require('gulp-concat');
 var cfg = require('../config');
 
 gulp.task('compact:js', function() {
-    return gulp.src('src/**/*.js')
+    return gulp.src(cfg.SOURCES_DIR + '/**/*.js')
         .pipe(concat('app.js'))
         .pipe(gulp.dest(cfg.BUILD_DIR))
         .pipe(connect.reload());

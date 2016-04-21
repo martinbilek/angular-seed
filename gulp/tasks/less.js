@@ -8,7 +8,7 @@ var cfg = require('../config');
 
 gulp.task('less', function(){
     return gulp.src([
-            'src/**/*.less'
+            cfg.SOURCES_DIR + '/**/*.less'
         ])
         .pipe(less({paths: 'node_modules'}).on('error', utils.log))
         .pipe(concat('app.css'))
@@ -18,7 +18,7 @@ gulp.task('less', function(){
 
 gulp.task('less:watch', ['less'], function () {
     gulp.watch([
-            'src/**/*.less'
+            cfg.SOURCES_DIR + '/**/*.less'
         ], function (event) {
             console.log('File ' + event.path + ' was ' + event.type + ', running tasks...');
             gulp.start('less');
