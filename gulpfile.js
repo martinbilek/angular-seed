@@ -8,10 +8,16 @@ fs.readdirSync('./gulp/tasks/')
         require('./gulp/tasks/' + task);
     });
 
-gulp.task('build', ['pre-clean', 'less', 'copy:deps', 'copy:src', 'copy:fonts']);
-// gulp.task('build', ['pre-clean', 'compile:app', 'less', 'copy:deps', 'copy:src', 'copy:fonts']);
+gulp.task('build', [
+    'clean',
+    'compact:js',
+    'less',
+    'deps:js',
+    'deps:fonts',
+    'copy:src'
+]);
 
 gulp.task('default', ['build', 'connect', 'less:watch'], function() {
-    // gulp.watch(['src/**/*.ts'], ['compile:app']);
+    gulp.watch(['src/**/*.js'], ['compact:js']);
     gulp.watch(['src/**/*.js', 'src/**/*.html'], ['copy:src']);
 });
