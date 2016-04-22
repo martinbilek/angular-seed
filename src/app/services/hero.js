@@ -1,32 +1,19 @@
 'use strict';
 
-var _HEROES = [
-    {"id": 11, "name": "Mr. Nice"},
-    {"id": 12, "name": "Narco"},
-    {"id": 13, "name": "Bombasto"},
-    {"id": 14, "name": "Celeritas"},
-    {"id": 15, "name": "Magneta"},
-    {"id": 16, "name": "RubberMan"},
-    {"id": 17, "name": "Dynama"},
-    {"id": 18, "name": "Dr IQ"},
-    {"id": 19, "name": "Magma"},
-    {"id": 20, "name": "Tornado"}
-];
-
-function HeroService($q) {
+function HeroService($q, $http, Config) {
 
     var service = {};
 
     service.getHeroes = function() {
-        return $q.when(_HEROES);
+        return $http.get(Config.API_URL + 'heroes/');
     }
 
     service.getHero = function(id) {
-        for (let hero of _HEROES) {
-            if (hero.id == id) {
-                return $q.when(hero);
-            }
-        }
+        return $http.get(Config.API_URL + 'heroes/' + id);
+    }
+
+    service.saveHero = function(hero) {
+        return $http.post(Config.API_URL + 'heroes/' + hero.id, hero);
     }
 
     return service;

@@ -3,7 +3,7 @@
 (function () {
     function DashboardController($scope, Hero) {
         Hero.getHeroes().then(function(data) {
-            $scope.heroes = data.slice(0, 3);
+            $scope.heroes = data.data.slice(0, 3);
         });
     }
 

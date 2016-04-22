@@ -5,7 +5,7 @@
         $scope.selectedHero = null;
 
         Hero.getHeroes().then(function(data) {
-            $scope.heroes = data;
+            $scope.heroes = data.data;
         });
 
         $scope.onSelect = function(hero) {

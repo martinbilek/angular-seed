@@ -8,6 +8,9 @@
     .config(function($locationProvider) {
         $locationProvider.html5Mode(true);
     })
+    .constant('Config', {
+        API_URL: 'http://localhost:8989/',
+    })
     .value('$routerRootComponent', 'app')
     .component('app', {
         template: `
